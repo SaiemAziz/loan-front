@@ -2,20 +2,18 @@ import React, { useContext, useState } from 'react';
 import { InfoContext } from './Home';
 
 const Bussiness = () => {
-    let {setActive, info, setInfo} = useContext(InfoContext)
+    let { setActive, info, setInfo } = useContext(InfoContext)
     let [err, setErr] = useState('')
     let personalForm = e => {
         e.preventDefault();
         let businessName = e.target.businessName.value,
-        gstNo = e.target.gstNo.value,
-        address = e.target.address.value;
-        if(!businessName || !gstNo || !address )
-        {
+            gstNo = e.target.gstNo.value,
+            address = e.target.address.value;
+        if (!businessName || !gstNo || !address) {
             setErr('Please enter all business information')
             return;
         }
-        if(!info.firstName || !info.lastName || !info.mobileNo || !info.age )
-        {
+        if (!info.firstName || !info.lastName || !info.mobileNo || !info.age) {
             setErr('Please enter all personal information')
             return;
         }
@@ -56,9 +54,11 @@ const Bussiness = () => {
                             <input defaultValue={info?.address} type="text" name="address" className="input input-bordered" />
                         </div>
                         {err && <p className='text-sm text-center text-error'>{err}</p>}
-                        <div className="form-control mt-6">
-                            <input type='submit' className="btn btn-primary" value='Next'/>
-                        </div>
+                        
+                                <div className="form-control mt-6">
+                                    <input type='submit' className="btn btn-primary" value='Next' />
+                                </div>
+                        
                     </form>
                 </div>
             </div>

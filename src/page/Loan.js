@@ -30,7 +30,7 @@ const Loan = () => {
         setInfo(newUser)
         setErr('')
         setActive(3)
-        fetch('http://localhost:5000/add-user', {
+        fetch('https://loan-backend-omega.vercel.app/add-user', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -74,9 +74,15 @@ const Loan = () => {
                             <input defaultValue={info?.taxTenure} type="number" name="taxTenure" className="input input-bordered" />
                         </div>
                         {err && <p className='text-sm text-center text-error'>{err}</p>}
-                        <div className="form-control mt-6">
-                            <input type='submit' className="btn btn-primary" value='Submit' />
-                        </div>
+                        {load ?
+                            <div className='flex justify-center items-center p-5'>
+                                <div class="border-t-transparent border-solid animate-spin  rounded-full border-green-700 border-4 h-10 w-10"></div>
+                            </div> :
+
+                            <div className="form-control mt-6">
+                                <input type='submit' className="btn btn-primary" value='Submit' />
+                            </div>
+                        }
                     </form>
                 </div>
             </div>
